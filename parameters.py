@@ -12,8 +12,8 @@ NEEDnurses_per_egg = 0.33
 NEEDnurses_per_larva = lambda i: [.1,.5,.75,1.75,3][i]
 
 # Les differents besoins en pollen
-POLLENNEEDadult = .0065
-POLLENNEEDnurse = .00087
+POLLENNEEDadult = .004
+POLLENNEEDnurse = .05
 POLLENNEEDlarva = lambda i: [.001,.003 , .006, .012, .027][i]
 
 # Les differents besoins en nectar
