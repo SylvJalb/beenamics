@@ -81,3 +81,23 @@ w_honey = .5
 w_egg = .0001
 w_pupa = .16
 w_adult = .1
+
+# pour la température
+RAIN = np.zeros(366)
+TEMP = np.zeros(366)
+
+# on utilise les températures de Paris en 2018 pour la variable température
+tempAll = np.loadtxt('2018ParisTemp.txt', unpack=True, skiprows=0)
+
+print(tempAll.shape)
+
+# on fait une moyenne de la journée
+count = 8
+i=0
+while i<len(TEMP):
+    TEMP[i] = np.average(tempAll[count:count+16])
+    i+=1
+    count+=25
+
+# on passe la temperature en celcius
+TEMP = (TEMP-32.)*(5/9)
