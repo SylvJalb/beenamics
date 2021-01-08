@@ -1,3 +1,5 @@
+import numpy as np
+
 # Le nombre de cellules dans la ruche
 CELLShive = 250000
 
