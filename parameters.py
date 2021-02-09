@@ -1,4 +1,5 @@
 import numpy as np
+import csv
 
 # Le nombre de cellules dans la ruche
 CELLShive = 250000
@@ -84,22 +85,21 @@ w_egg = .0001
 w_pupa = .16
 w_adult = .1
 
-# pour la température
-RAIN = np.zeros(366)
-TEMP = np.zeros(366)
 
-# on utilise les températures de Paris en 2018 pour la variable température
-tempAll = np.loadtxt('2018ParisTemp.txt', unpack=True, skiprows=0)
+# lecture des données météo
+# ici les données d'une journée sont les données relevé de 00h à 23h
+WIND = np.zeros(366) #vitesse moyenne du vent dans la journée (en m/s)
+TEMP = np.zeros(366) #température moyenne dans la journée (en °C)
+HUMIDITY = np.zeros(366) #humidité moyenne dans la journée (en %)
+RAIN = np.zeros(366) #quantité de pluie dans la journée (en mm)
+with open('donnees-meteo-toulouse-2020.csv', mode='r') as csv_file:
+    csv_reader = csv.DictReader(csv_file)
+    line_count = 0
+    for row in csv_reader:
+        if line_count != 0:
+            WIND[line_count - 1] = row["Vitesse_vent"]
+            TEMP[line_count - 1] = row["Temperature"]
+            HUMIDITY[line_count - 1] = row["Humidite"]
+            RAIN[line_count - 1] = row["Precipitation"]
+        line_count += 1
 
-print(tempAll.shape)
-
-# on fait une moyenne de la journée
-count = 8
-i=0
-while i<len(TEMP):
-    TEMP[i] = np.average(tempAll[count:count+16])
-    i+=1
-    count+=25
-
-# on passe la temperature en celcius
-TEMP = (TEMP-32.)*(5/9)
