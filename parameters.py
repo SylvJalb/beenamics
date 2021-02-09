@@ -91,7 +91,7 @@ w_adult = .1
 WIND = np.zeros(366) #vitesse moyenne du vent dans la journée (en m/s)
 TEMP = np.zeros(366) #température moyenne dans la journée (en °C)
 HUMIDITY = np.zeros(366) #humidité moyenne dans la journée (en %)
-RAIN = np.zeros(366) #quantité de pluie dans la journée (en mm)
+RAIN = np.zeros(366) #nombre d'heure où il a plue dans la journée / 24 (un nombre entre 0 et 1)
 with open('donnees-meteo-toulouse-2020.csv', mode='r') as csv_file:
     csv_reader = csv.DictReader(csv_file)
     line_count = 0
@@ -100,6 +100,6 @@ with open('donnees-meteo-toulouse-2020.csv', mode='r') as csv_file:
             WIND[line_count - 1] = row["Vitesse_vent"]
             TEMP[line_count - 1] = row["Temperature"]
             HUMIDITY[line_count - 1] = row["Humidite"]
-            RAIN[line_count - 1] = row["Precipitation"]
+            RAIN[line_count - 1] = row["Pluie"]
         line_count += 1
 
