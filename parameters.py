@@ -1,5 +1,8 @@
 import numpy as np
 
+# l'année courante
+year = 2020
+
 # Le nombre de cellules dans la ruche
 CELLShive = 250000
 
@@ -74,6 +77,7 @@ INITnectar = 0
 INIThoney = 50000
 STOCHASTIC_FACTOR = True
 
+# les différents poids
 w_hivebase = 14000
 w_cellsbase = .037
 w_pollen = .23
@@ -84,11 +88,8 @@ w_egg = .0001
 w_pupa = .16
 w_adult = .1
 
-
-# données météo
-WIND = np.zeros(366) #pourcentage d'heure où le vent était > 45km/h lorsqu'il faisait jour
-TEMP = np.zeros(366) #température moyenne dans la journée (en °C)
-HUMIDITY = np.zeros(366) #pourcentage d'heure où l'humidité est < 60% lorsqu'il faisait jour
-RAIN = np.zeros(366) #pourcentage d'heure où il a plue lorsqu'il faisait jour
-
-
+#METEO
+# La vitesse de vent à partir de laquelle les abeilles ne sont plus en mesure de voler (en m/s)
+WIND_max = 12.5
+# L'humidité minimale afin d'avoir du nectar
+HUMIDITY_min = 60
