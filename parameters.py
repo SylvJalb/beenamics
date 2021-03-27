@@ -2,14 +2,15 @@ import numpy as np
 
 # l'année courante
 year = 2021
-# le jour courant
-today_number = 82
 
-# la ville
+# la ville où sont situé les ruches
 city_name = "Gelos"
+lat = "43.285713"
+lon = "-0.372236"
 
 # la clé de l'api openweathermap
 api_key = "0446cefece6ab95b7f30537fd53489e0"
+
 
 # le nombre de jour prédit par l'API
 nbr_day_predict = 5
