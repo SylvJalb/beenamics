@@ -1,8 +1,5 @@
 import numpy as np
 
-# l'année courante
-year = 2021
-
 # la ville où sont situé les ruches
 city_name = "Gelos"
 lat = "43.285713"
